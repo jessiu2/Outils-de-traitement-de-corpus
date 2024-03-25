@@ -30,7 +30,7 @@ def clean_text(text):
     cleaned_text = re.sub(r'\s+', ' ', cleaned_text)
     return cleaned_text.strip()
 
-page_titles = ["France", "Paris", "Vin"]
+page_titles = ["inalco", "NLP", "Vin"]
 corpus_data = get_wikipedia_data(language="fr", page_titles=page_titles, num_pages=10)
 
 output_file = "corpus_wikifr.txt"
