@@ -2,7 +2,7 @@
 ### Tâche  
 Text Generation, sous-tâche de language-modeling
 ### Corpus choisi
-wikipedia/20220301simple (https://huggingface.co/datasets/wikipedia#20220301simple)
+wikipedia/20220301fr (https://huggingface.co/datasets/wikipedia#20220301fr)
 C'est un corpus de Wikipédia en chinois simplifié
 ### Type de prédiction possible 
 Ce corpus peut être utilisé pour plusieurs types de prédictions dans le domaine du traitement automatique du langage tels que classification de texte et génération de texte, etc.
