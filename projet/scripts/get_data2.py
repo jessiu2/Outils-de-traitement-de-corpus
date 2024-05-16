@@ -1,37 +1,52 @@
 import requests
 from bs4 import BeautifulSoup
+import time
 
-def get_recent_changes(date):
-    base_url = "https://fr.wikipedia.org/w/api.php"
-    params = {
-        "action": "query",  # Type d'action pour l'API
-        "format": "json",  # Format de la réponse
-        "list": "recentchanges",  # Demander la liste des modifications récentes
-        "rcstart": f"{date}T00:00:00Z",  # Heure de début pour les changements récents
-        "rcend": f"{date}T23:59:59Z",  # Heure de fin pour les changements récents
-        "rcprop": "title|ids",  # Propriétés à retourner : ici, les titres et les IDs des pages
-        "rclimit": "max",  # Limite du nombre de résultats retournés (max pour le maximum possible)
-        "rcnamespace": "0",  # Seulement l'espace de noms principal (articles)
-    }
-    response = requests.get(base_url, params=params)
-    data = response.json()
-    print(response.json()) 
-    titles = [change['title'] for change in data['query']['recentchanges']]
-    return titles
+# URL de la page de catégorie "Culture" sur Wikipédia en français
+start_url = "https://fr.wikipedia.org/wiki/Catégorie:Culture"
+base_url = "https://fr.wikipedia.org"
+visited_urls = set()
+corpus = ''
 
-def fetch_wikipedia_article(title):
-    url = f"https://fr.wikipedia.org/wiki/{title.replace(' ', '_')}"
-    response = requests.get(url)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    text = soup.find('div', {'id': 'mw-content-text'}).text
-    return text
+def get_article_links(category_url):
+    response = requests.get(category_url)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.content, 'html.parser')
+        # Trouver tous les liens vers les pages d'articles
+        links = soup.select('.mw-category-group a, .mw-category-generated a')
+        article_urls = [base_url + link.get('href') for link in links if link.get('href').startswith('/wiki/')]
+        return article_urls
+    return []
 
-# Récupérer les titres des articles modifiés à une date spécifiée
-titles = get_recent_changes("2024-05-15")
-with open("articles_wiki.txt", 'w', encoding='utf-8') as file:
-    for title in titles:
-        try:
-            article_text = fetch_wikipedia_article(title)
-            file.write(f"Title: {title}\n{article_text}\n\n---\n\n")
-        except Exception as e:
-            print(f"Échec de la récupération de {title}: {str(e)}")
+def get_article_content(article_url):
+    response = requests.get(article_url)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.content, 'html.parser')
+        paragraphs = soup.find_all('p')
+        article_text = ''
+        for p in paragraphs:
+            article_text += p.get_text()
+        return article_text
+    return ''
+
+# Obtenir les liens d'articles à partir de la page de catégorie
+article_urls = get_article_links(start_url)
+
+# Extraire le contenu de chaque article
+for url in article_urls:
+    if url not in visited_urls:
+        print(f"Récupération de : {url}")
+        article_content = get_article_content(url)
+        corpus += article_content + '\n'
+        visited_urls.add(url)
+        time.sleep(1)  # Pause d'une seconde pour éviter de surcharger le serveur
+
+        # Limiter le nombre d'articles pour éviter une extraction infinie
+        if len(visited_urls) >= 300:
+            break
+
+# Enregistrer le corpus dans un fichier local
+with open('corpus_francais.txt', 'w', encoding='utf-8') as file:
+    file.write(corpus)
+
+print("Le corpus a été créé avec succès et enregistré dans 'corpus_francais.txt'")
