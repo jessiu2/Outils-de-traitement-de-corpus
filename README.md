@@ -25,3 +25,10 @@ En fait, pour le travail du cours 2, on a déjà transformé le corpus de `.txt`
 
 ### Lancer l'Annotation Morphosyntaxique
 Utilisation de module spacy pour effectuer des annotations morphosyntaxiques sur le contenu de chaque article, et sauvegarder les résultats, voir `annoter_corpus.py`.
+
+## Cours 4
+### TP2
+Hugging Face Datasets offre des méthodes et des outils pour évaluer la qualité du texte comme calculer la longueur du texte, la diversité lexicale, la structure des phrases, et d'autres indicateurs. De plus, il est également possible d'utiliser des modèles pré-entraînés pour calculer la similarité sémantique des textes, ce qui permet une évaluation plus approfondie de la qualité du texte.
+
+J'ai écrit aussi des scripts pour évaluer mon corpus selon ces indicateurs.
+
