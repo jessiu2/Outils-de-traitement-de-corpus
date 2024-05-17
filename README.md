@@ -20,4 +20,5 @@ Enfin, je fais appel à la bibliothèque `pandas` pour formater les données afi
 
 ## Cours 3
 ### Ouvrir le Corpus avec Pandas
-J'ai écrit un script 'read_corpus.py' qui ouvrir un csv avec Pandas et qui accept un chemin de fichier comme un argument.
+J'ai écrit un script `read_corpus.py` qui ouvrir un csv avec Pandas et qui accept un chemin de fichier comme un argument.
+En fait, pour le travail du cours 2, on a déjà transformé le corpus de `.txt` à `.csv`.
