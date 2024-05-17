@@ -13,9 +13,6 @@ def clean_txt_file(file_path):
         lines = cleaned_content.split('\n')
         cleaned_lines = [line.strip() for line in lines if line.strip()]
         
-        # Supprimer les lignes en double
-        cleaned_lines = list(dict.fromkeys(cleaned_lines))
-        
         # Afficher les données nettoyées (les 10 premières lignes)
         print("Données nettoyées (premières 10 lignes) :")
         for line in cleaned_lines[:10]:
