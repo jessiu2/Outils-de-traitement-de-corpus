@@ -1,10 +1,16 @@
+import re
+
 def clean_txt_file(file_path):
     try:
         # Lire le contenu du fichier
         with open(file_path, 'r', encoding='utf-8') as file:
-            lines = file.readlines()
+            content = file.read()
         
-        # Supprimer les lignes vides et retirer les espaces au début et à la fin de chaque ligne
+        # Utiliser une expression régulière pour supprimer les références de type "[1]"
+        cleaned_content = re.sub(r'\[\d+\]', '', content)
+
+        # Séparer le contenu en lignes et retirer les espaces au début et à la fin
+        lines = cleaned_content.split('\n')
         cleaned_lines = [line.strip() for line in lines if line.strip()]
         
         # Supprimer les lignes en double

@@ -4,18 +4,30 @@ def process_file(file_path):
     try:
         # Lire le fichier
         with open(file_path, 'r', encoding='utf-8') as file:
-            articles = file.read().split('---\n\n')  
+            articles = file.read().split('---\n\n')
         
         # Analyser le contenu des articles
         data = []
         for article in articles:
             if article.strip():  # Vérifier si l'article n'est pas vide
-                lines = article.strip().split('\n')
-                title = lines[0].replace('Title: ', '')  # Extraire le titre
-                text = '\n'.join(lines[1:])  # Extraire le texte
+                segments = article.strip().split('\n')
+                title = ''
+                url = ''
+                content = []
+                content_flag = False
+                for segment in segments:
+                    if segment.startswith('Titre: '):
+                        title = segment.replace('Titre: ', '')
+                    elif segment.startswith('Lien: '):
+                        url = segment.replace('Lien: ', '')
+                    elif segment.startswith('Contenu:'):
+                        content_flag = True
+                    elif content_flag:
+                        content.append(segment)
+                text = '\n'.join(content)
                 data.append({
-                    'id': '',  # Champ id vide pour l'instant
-                    'url': '',  # Champ url vide pour l'instant
+                    'id': len(data) + 1,  # Assign sequential IDs starting from 1
+                    'url': url,
                     'title': title,
                     'text': text
                 })
