@@ -8,7 +8,7 @@ def load_text(file_path):
 def split_text(text, max_length=1000000):
     return [text[i:i+max_length] for i in range(0, len(text), max_length)]
     
-def analyze_sentence_structure(text)
+def analyze_sentence_structure(text, nlp)
     doc = nlp(text)
     sentences = list(doc.sents)
     if len(sentences) == 0:
