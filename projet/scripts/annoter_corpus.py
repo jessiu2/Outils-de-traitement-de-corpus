@@ -3,8 +3,12 @@ import spacy
 import sys
 
 def load_data(file_path):
-    # Load the CSV file into a DataFrame
-    df = pd.read_csv(file_path)
+    # Read the text file into a list of paragraphs or sentences
+    with open(file_path, 'r', encoding='utf-8') as file:
+        data = file.readlines()
+    
+    # Convert list to DataFrame
+    df = pd.DataFrame(data, columns=['contenu'])
     return df
 
 def annotate_text(text, nlp):
