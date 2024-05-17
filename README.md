@@ -17,3 +17,7 @@ Au début, j'utilisais la bibliothèque `wikipedia` pour obtenir le contenu des 
 Ensuite, pour le texte récupéré, j'utilise le script `clean_data.py` pour nettoyer les données.
 
 Enfin, je fais appel à la bibliothèque `pandas` pour formater les données afin de correspondre au format du corpus choisi lors de la première leçon. Les données sont sauvegardées au format CSV en utilisant le script `format_data.py`.
+
+## Cours 3
+### Ouvrir le Corpus avec Pandas
+J'ai écrit un script 'read_corpus.py' qui ouvrir un csv avec Pandas et qui accept un chemin de fichier comme un argument.
