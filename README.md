@@ -32,3 +32,6 @@ Hugging Face Datasets offre des méthodes et des outils pour évaluer la qualit�
 
 J'ai écrit aussi des scripts pour évaluer mon corpus selon ces indicateurs. Lors du calcul de la longueur moyenne des phrases du texte, étant donné que la longueur maximale par défaut des textes dans spaCy est de 1 000 000 de caractères et que la longueur de mon corpus texte est de 2 015 529, j'ai donc divisé le texte en parties plus petites, puis j'ai traité chaque partie séparément.
 
+### TP3
+Voir `visualisation_corpus.py`
+
