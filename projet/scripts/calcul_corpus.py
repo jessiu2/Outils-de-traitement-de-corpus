@@ -3,6 +3,8 @@ from nltk.tokenize import word_tokenize
 from collections import Counter
 import sys
 
+nltk.download('punkt')
+
 def diversite_lexicale(texte):
     tokens = word_tokenize(texte)
     return len(set(tokens)) / len(tokens)
