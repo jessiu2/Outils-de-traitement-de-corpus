@@ -14,7 +14,7 @@ def get_article_links(category_url):
         soup = BeautifulSoup(response.content, 'html.parser')
         # Trouver tous les liens vers les pages d'articles
         links = soup.select('.mw-category-group a, .mw-category-generated a')
-        article_urls = [base_url + link.get('href') for link in links if link.get('href').startswith('/wiki/')]
+        article_urls = [base_url + link.get('href') for link in links if link.get('href') and link.get('href').startswith('/wiki/')]
         return article_urls
     return []
 
