@@ -30,7 +30,7 @@ Utilisation de module spacy pour effectuer des annotations morphosyntaxiques sur
 ### TP2
 Hugging Face Datasets offre des méthodes et des outils pour évaluer la qualité du texte comme calculer la longueur du texte, la diversité lexicale, la structure des phrases, et d'autres indicateurs. De plus, il est également possible d'utiliser des modèles pré-entraînés pour calculer la similarité sémantique des textes, ce qui permet une évaluation plus approfondie de la qualité du texte.
 
-J'ai écrit aussi des scripts pour évaluer mon corpus selon ces indicateurs. Lors du calcul de la longueur moyenne des phrases du texte, étant donné que la longueur maximale par défaut des textes dans spaCy est de 1 000 000 de caractères et que la longueur de mon corpus texte est de 2 015 529, j'ai donc divisé le texte en parties plus petites, puis j'ai traité chaque partie séparément.
+J'ai écrit aussi des scripts pour évaluer mon corpus selon ces indicateurs, voir `calcul_corpus.py` qui calculer la diversité lexicale et `structure_corpus.py` qui calculer la longueur moyenne des phrases. Lors du calcul de la longueur moyenne des phrases du texte, étant donné que la longueur maximale par défaut des textes dans spaCy est de 1 000 000 de caractères et que la longueur de mon corpus texte est de 2 015 529, j'ai donc divisé le texte en parties plus petites, puis j'ai traité chaque partie séparément.
 
 ### TP3
 Voir `visualisation_corpus.py`
