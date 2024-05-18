@@ -46,3 +46,6 @@ pour détecter et éliminer des données aberrantes, j'utilisé la méthode du Z
 
 ### Augmenter ses données
 Voir le code `augmenter_corpus.py` utilisant la bibliothèque `nlpaug` pour augmenter des données textuelles, ici, j'ai utilisé des synonymes comme la méthode de l'augmentation.
+
+### Evaluer son corpus avec les métriques adaptées
+Voir le script `metrique_corpus.py` utilisant les métriques pour mesurer la diversité lexicale, la lisibilité et la cohérence local.
