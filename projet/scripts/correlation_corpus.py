@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from scipy.stats import pearsonr
 
-with open('/projet/data/processed/corpus_wiki_fr_cleaned.txt', 'r', encoding='utf-8') as file:
+with open('~/Outils-de-traitement-de-corpus/projet/data/processed/corpus_wiki_fr_cleaned.txt', 'r', encoding='utf-8') as file:
     text_data = file.readlines()
 
 # Créer un DataFrame pour stocker la longueur de chaque texte et la fréquence du mot 'tourism'
