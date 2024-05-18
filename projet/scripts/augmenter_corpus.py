@@ -11,6 +11,8 @@ def augment_text(text, aug, num_aug=1):
     augmented_texts = []
     for _ in range(num_aug):
         augmented_text = aug.augment(text)
+        if isinstance(augmented_text, list):
+            augmented_text = ' '.join(augmented_text)
         augmented_texts.append(augmented_text)
     return augmented_texts
 
