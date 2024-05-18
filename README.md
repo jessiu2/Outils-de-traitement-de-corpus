@@ -40,3 +40,6 @@ Voir `visualisation_corpus.py`
 Mon corpus est basé sur des textes collectés par une recherche sur le mot-clé "tourism", donc j'ai écrit un script `correlation_corpus.py` pour calculer le coefficient de corrélation de Pearson entre la longueur des textes et la fréquence du mot "tourism". Le résultat obtenu est d'environ 0,376, ce qui signifie qu'il existe une légère corrélation positive entre les deux variables.
 
 Si la p-value n'est pas significative, on peut utiliser quelques approches pour augmenter, par exemple, augmenter la taille de l'échantillon, contrôler les variables confondantes ou améliorer la qualité des données. 
+
+### Eliminer les données abérrantes
+pour détecter et éliminer des données aberrantes, j'utilisé la méthode du Z-score dans le script `z-score.py`.
