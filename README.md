@@ -43,3 +43,6 @@ Si la p-value n'est pas significative, on peut utiliser quelques approches pour 
 
 ### Eliminer les données abérrantes
 pour détecter et éliminer des données aberrantes, j'utilisé la méthode du Z-score dans le script `z-score.py`.
+
+### Augmenter ses données
+Voir le code `augmenter_corpus.py` utilisant la bibliothèque nlpaug pour augmenter des données textuelles
