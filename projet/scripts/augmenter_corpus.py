@@ -5,7 +5,7 @@ nltk.download('averaged_perceptron_tagger')
 nltk.download('wordnet')
 
 # Charger les données
-with open('/mnt/data/corpus_wiki_fr_cleaned.txt', 'r', encoding='utf-8') as file:
+with open('/Outils-de-traitement-de-corpus/projet/data/processed/corpus_wiki_fr_cleaned.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
 
 # Fonction pour augmenter une ligne de texte
